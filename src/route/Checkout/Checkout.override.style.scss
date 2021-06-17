@@ -1,4 +1,16 @@
+@keyframes slideInFromLeft {
+    0% {
+        background-position: right bottom;
 
+    }
+    100% {
+         background-position: left bottom;
+    }
+  }
+  @keyframes slide {
+      from {background-color: #979797;}
+      to {background-color: #f26323;}
+  }
 .Checkout{
     &::before{
         display: none;
@@ -17,11 +29,11 @@
             justify-content: space-between;
             align-items: center;
             .numberPlace{
-                background-color: #f26323;
                 background-color:#979797;
                 color: white;
                 width: 30px;
                 height: 30px;
+                min-width: 30px;
                 border-radius: 20px;
                 display: flex;
                 justify-content: center;
@@ -29,7 +41,6 @@
             }
             .breakpoint-title{
                 position: absolute;
-                left: -50%;
                 bottom: 2px;
                 white-space: nowrap;
                 color: #000000;
@@ -37,11 +48,15 @@
             .billing{
                 left: -150%
             }
+            .check{
+                background-color: #f26323;
+            }
         }
+        
         .sidebar, .middlebar{
             margin-top: 20px;
             height: 3px;
-            background: linear-gradient(to right, red 50%, white 50%);
+            background: linear-gradient(to right, #f26323 50%, #979797 50%);
             background-size: 200% 100%;
             background-position: right bottom;
             transition: all .5s ease-out;
@@ -56,7 +71,10 @@
             flex-grow: 1;
         }
         .done{
-                background-position: left bottom;
-        }
+                animation: 1s ease-out 0s 1 slideInFromLeft;
+                animation-fill-mode:forwards;
+
+            }
+
     }
 }
